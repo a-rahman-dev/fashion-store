@@ -1,0 +1,465 @@
+@import "tailwindcss";
+
+/* ============================================
+   LUVÉRA — Midnight Ember Design System
+   "Wear the night."
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --ember-bg: #0B0A14;
+  --ember-bg-elevated: #12101F;
+  --ember-surface: #1A1730;
+  --ember-surface-glass: rgba(26, 23, 48, 0.55);
+  --ember-surface-glass-hover: rgba(26, 23, 48, 0.75);
+
+  /* Borders — warm-tinted */
+  --ember-border: rgba(255, 200, 120, 0.08);
+  --ember-border-strong: rgba(255, 200, 120, 0.15);
+
+  /* Ember Accent */
+  --ember-primary: #FF9A3C;
+  --ember-primary-soft: #FFB566;
+  --ember-primary-deep: #E67E22;
+  --ember-glow: rgba(255, 154, 60, 0.35);
+  --ember-glow-strong: rgba(255, 154, 60, 0.6);
+
+  /* Secondary */
+  --ember-gold: #F4D06F;
+  --ember-success: #3ECF8E;
+  --ember-warning: #FFB84D;
+  --ember-danger: #FF5C5C;
+  --ember-info: #7DA9FF;
+
+  /* Text */
+  --ember-text: #F5EFE7;
+  --ember-text-muted: #9A94A8;
+  --ember-text-dim: #6B6678;
+}
+
+/* ============================================
+   GLOBAL BASE
+   ============================================ */
+html {
+  background: var(--ember-bg);
+}
+
+body {
+  background: var(--ember-bg);
+  color: var(--ember-text);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   EMBER ROOT (page wrapper)
+   ============================================ */
+.ember-root {
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 154, 60, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 154, 60, 0.04) 0%, transparent 50%),
+    var(--ember-bg);
+  color: var(--ember-text);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ============================================
+   GLASS CARD
+   ============================================ */
+.glass-card {
+  background: var(--ember-surface-glass);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--ember-border);
+  border-radius: 16px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 154, 60, 0.4), transparent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  background: var(--ember-surface-glass-hover);
+  border-color: var(--ember-border-strong);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 154, 60, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   EMBER GLOW & BUTTON
+   ============================================ */
+.ember-glow {
+  box-shadow:
+    0 0 20px var(--ember-glow),
+    0 0 40px rgba(255, 154, 60, 0.15);
+}
+
+.ember-button {
+  background: linear-gradient(135deg, var(--ember-primary) 0%, var(--ember-primary-deep) 100%);
+  color: #0B0A14;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.625rem 1.25rem;
+  transition: all 200ms ease-out;
+  box-shadow: 0 4px 16px rgba(255, 154, 60, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ember-button:hover {
+  box-shadow: 0 6px 24px rgba(255, 154, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes ember-flicker {
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--ember-glow); }
+  50% { opacity: 0.85; box-shadow: 0 0 30px var(--ember-glow-strong); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.35); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.live-dot {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.ember-flicker {
+  animation: ember-flicker 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 154, 60, 0.15);
+  border-radius: 4px;
+}@import "tailwindcss";
+
+/* ============================================
+   LUVÉRA — Midnight Ember Design System
+   "Wear the night."
+   ============================================ */
+
+:root {
+  /* Backgrounds */
+  --ember-bg: #0B0A14;
+  --ember-bg-elevated: #12101F;
+  --ember-surface: #1A1730;
+  --ember-surface-glass: rgba(26, 23, 48, 0.55);
+  --ember-surface-glass-hover: rgba(26, 23, 48, 0.75);
+
+  /* Borders — warm-tinted */
+  --ember-border: rgba(255, 200, 120, 0.08);
+  --ember-border-strong: rgba(255, 200, 120, 0.15);
+
+  /* Ember Accent */
+  --ember-primary: #FF9A3C;
+  --ember-primary-soft: #FFB566;
+  --ember-primary-deep: #E67E22;
+  --ember-glow: rgba(255, 154, 60, 0.35);
+  --ember-glow-strong: rgba(255, 154, 60, 0.6);
+
+  /* Secondary */
+  --ember-gold: #F4D06F;
+  --ember-success: #3ECF8E;
+  --ember-warning: #FFB84D;
+  --ember-danger: #FF5C5C;
+  --ember-info: #7DA9FF;
+
+  /* Text */
+  --ember-text: #F5EFE7;
+  --ember-text-muted: #9A94A8;
+  --ember-text-dim: #6B6678;
+}
+
+/* ============================================
+   GLOBAL BASE
+   ============================================ */
+html {
+  background: var(--ember-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ember-bg);
+  color: var(--ember-text);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-playfair), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* ============================================
+   EMBER ROOT (page wrapper)
+   ============================================ */
+.ember-root {
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 154, 60, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 154, 60, 0.04) 0%, transparent 50%),
+    var(--ember-bg);
+  color: var(--ember-text);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ============================================
+   GLASS CARD
+   ============================================ */
+.glass-card {
+  background: var(--ember-surface-glass);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--ember-border);
+  border-radius: 16px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 154, 60, 0.4), transparent);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  background: var(--ember-surface-glass-hover);
+  border-color: var(--ember-border-strong);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 154, 60, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   EMBER GLOW & BUTTON
+   ============================================ */
+.ember-glow {
+  box-shadow:
+    0 0 20px var(--ember-glow),
+    0 0 40px rgba(255, 154, 60, 0.15);
+}
+
+.ember-button {
+  background: linear-gradient(135deg, var(--ember-primary) 0%, var(--ember-primary-deep) 100%);
+  color: #0B0A14;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.625rem 1.25rem;
+  transition: all 200ms ease-out;
+  box-shadow: 0 4px 16px rgba(255, 154, 60, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.ember-button:hover {
+  box-shadow: 0 6px 24px rgba(255, 154, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+.ember-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   GHOST BUTTON (secondary)
+   ============================================ */
+.ember-ghost {
+  background: transparent;
+  color: var(--ember-text);
+  border: 1px solid var(--ember-border-strong);
+  border-radius: 10px;
+  padding: 0.625rem 1.25rem;
+  font-weight: 500;
+  transition: all 200ms ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.ember-ghost:hover {
+  background: rgba(255, 154, 60, 0.08);
+  border-color: var(--ember-primary);
+  color: var(--ember-primary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes ember-flicker {
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px var(--ember-glow); }
+  50% { opacity: 0.85; box-shadow: 0 0 30px var(--ember-glow-strong); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.35); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.live-dot {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.ember-flicker {
+  animation: ember-flicker 3s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 400ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.fade-in {
+  animation: fade-in 300ms ease-out both;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 154, 60, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 154, 60, 0.35);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: rgba(255, 154, 60, 0.3);
+  color: var(--ember-text);
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.ember-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ember-border-strong), transparent);
+  margin: 2rem 0;
+}
+
+.ember-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--ember-border);
+  border-radius: 10px;
+  padding: 0.625rem 0.875rem;
+  color: var(--ember-text);
+  width: 100%;
+  transition: all 200ms ease-out;
+}
+
+.ember-input::placeholder {
+  color: var(--ember-text-dim);
+}
+
+.ember-input:focus {
+  outline: none;
+  border-color: var(--ember-primary);
+  box-shadow: 0 0 0 3px rgba(255, 154, 60, 0.1);
+}
+
+/* Select dropdown styling (Midnight Ember) */
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background-color: #12101F;
+  color: #F5EFE7;
+  padding: 8px;
+}
+
+select option:hover,
+select option:checked {
+  background-color: #FF9A3C;
+  color: #0B0A14;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
