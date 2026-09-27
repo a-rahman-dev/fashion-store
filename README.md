@@ -4,7 +4,7 @@ A modern, full-stack fashion e-commerce platform built with **Next.js**, featuri
 
 ## ✨ Highlights
 
-* 🛍️ Modern fashion e-commerce storefront
+* 🛍️ Modern and professional fashion e-commerce storefront
 * 🤖 AI-powered shopping assistant with product recommendations
 * 🏪 Complete seller console for managing the store
 * 📦 Product, order, customer, and inventory management
