@@ -4,8 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 
-const spring = { type: "spring" as const, stiffness: 300, damping: 26 };
-
 export function ProductsHeader() {
   return (
     <motion.div
